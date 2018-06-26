@@ -4,3 +4,27 @@ ul {
 li {
   margin-bottom: 10px;
 }
+.level1 {
+  color: rgb(0, 8, 255);
+}
+.level2 {
+  color: rgb(0, 50, 255);
+}
+.level3 {
+  color: rgb(0, 80, 255);
+}
+.level4 {
+  color: rgb(0, 120, 255);
+}
+.level5 {
+  color: rgb(0, 140, 255);
+}
+.level6 {
+  color: rgb(0, 180, 255);
+}
+.level7 {
+  color: rgb(0, 220, 255);
+}
+.level8 {
+  color: rgb(0, 255, 255);
+}

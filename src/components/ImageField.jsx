@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-export class NumberField extends Component {
+export class ImageField extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -21,13 +21,10 @@ export class NumberField extends Component {
           <div className="col-1">
             <p>{this.props.keyValue}</p>
           </div>
-          <div className="col-1">
-            <input
-              type="number"
-              step="0.1"
-              value={this.state.inputValue}
-              onChange={this.handleChange}
-            />
+        </div>
+        <div className="row">
+          <div className="col">
+            <img src={this.props.data} alt="Unable To Display Picture" />
           </div>
         </div>
       </div>
@@ -35,4 +32,4 @@ export class NumberField extends Component {
   }
 }
 
-export default NumberField;
+export default ImageField;

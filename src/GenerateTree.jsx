@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import FieldSelector from "./components/FieldSelector";
+import HeaderField from "./components/HeaderField";
+
 import axios from "axios";
 export class GenerateTree extends Component {
   constructor(props) {
@@ -10,7 +12,7 @@ export class GenerateTree extends Component {
     axios
       .get("https://randomuser.me/api")
       .then(res => {
-        this.setState({ json: res });
+        this.setState({ json: res.data });
       })
       .catch(e => console.log(e));
   };
@@ -25,15 +27,26 @@ export class GenerateTree extends Component {
   createTree = (data, keyValue, level) => {
     var child = [];
     if (typeof data === "object") {
-      child.push(
-        <li key={keyValue}>
-          Level: {level} {keyValue}
-        </li>
-      );
-      for (var key in data) {
+      if (level > 1 && keyValue) {
         child.push(
-          <ul key={key}>{this.createTree(data[key], key, level + 1)}</ul>
+          <li key={keyValue}>
+            <HeaderField level={level} data={data} keyValue={keyValue} />
+          </li>
         );
+      }
+
+      for (var key in data) {
+        if (data.hasOwnProperty(key)) {
+          child.push(
+            <ul key={key}>
+              {this.createTree(
+                data[key],
+                Array.isArray(data) ? "" : key,
+                level + 1
+              )}
+            </ul>
+          );
+        }
       }
     } else {
       child.push(
