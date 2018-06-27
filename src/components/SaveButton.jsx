@@ -14,7 +14,13 @@ export class SaveButton extends Component {
   render() {
     return (
       <div>
-        <input type="submit" text="submit" onClick={this.saveData} />
+        <input
+          id="saveButton"
+          class="btn btn-primary"
+          type="submit"
+          value="Save Button"
+          onClick={this.saveData}
+        />
       </div>
     );
   }

@@ -6,8 +6,11 @@ li {
 }
 input {
   padding: 8px 15px;
-
   box-sizing: border-box;
+}
+#saveButton {
+  margin: auto;
+  display: block;
 }
 .level1 {
   color: rgb(0, 8, 255);

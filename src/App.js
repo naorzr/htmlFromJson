@@ -7,7 +7,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <form action="/action.html">
+        <form>
           <GenerateTree />
           <SaveButton />
         </form>
