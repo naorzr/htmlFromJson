@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import FieldSelector from "./components/FieldSelector";
-import HeaderField from "./components/HeaderField";
+import FieldSelector from "./fields/FieldSelector";
+import HeaderField from "./fields/HeaderField";
 
 import axios from "axios";
 export class GenerateTree extends Component {

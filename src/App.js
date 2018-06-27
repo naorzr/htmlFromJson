@@ -1,12 +1,16 @@
 import React, { Component } from "react";
 import "./App.css";
-import { GenerateTree } from "./GenerateTree";
-import jsontest from "./components/json/test.json";
+import { GenerateTree } from "./components/GenerateTree";
+import { SaveButton } from "./components/SaveButton";
+
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <GenerateTree data={jsontest} />
+        <form action="/action.html">
+          <GenerateTree />
+          <SaveButton />
+        </form>
       </div>
     );
   }

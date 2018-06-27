@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import StringField from "./StringField";
 import NumberField from "./NumberField";
 import ImageField from "./ImageField";
+import { VideoField } from "./VideoField";
 
 export class FieldSelector extends Component {
   constructor(props) {
@@ -9,8 +10,12 @@ export class FieldSelector extends Component {
 
     this.state = { data: {} };
   }
-  checkURL = url => {
+  checkIMG = url => {
     return url.match(/\.(jpg|gif|png)$/) != null;
+  };
+
+  checkVID = url => {
+    return url.match(/\.(mp4|webm|ogg)$/) != null;
   };
 
   isNumeric = n => {
@@ -29,12 +34,20 @@ export class FieldSelector extends Component {
       );
     }
     if (typeof this.props.data === "string") {
-      if (this.checkURL(this.props.data)) {
+      if (this.checkIMG(this.props.data)) {
         return (
           <ImageField
             level={this.props.level}
             data={this.props.data}
             keyValue={this.props.keyValue}
+          />
+        );
+      } else if (this.checkVID(this.props.data)) {
+        return (
+          <VideoField
+            keyValue={this.props.keyValue}
+            data={this.props.data}
+            level={this.props.level}
           />
         );
       }
@@ -45,8 +58,6 @@ export class FieldSelector extends Component {
           level={this.props.level}
         />
       );
-    } else {
-      return this.props.data;
     }
   };
 

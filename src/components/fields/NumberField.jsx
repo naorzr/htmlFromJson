@@ -10,6 +10,10 @@ export class NumberField extends Component {
   }
   handleChange = e => {
     this.setState({ inputValue: e.target.value, changeValue: false });
+    window.sessionStorage.setItem(
+      this.props.keyValue + "-level-" + this.props.level,
+      this.state.inputValue
+    );
   };
   render() {
     return (
